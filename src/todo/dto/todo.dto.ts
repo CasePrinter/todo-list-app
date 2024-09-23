@@ -25,4 +25,9 @@ export class TodoDto {
     @MaxLength(150)
     priority: string
     
+    @ApiProperty({description: 'Status pode ser definida como : OPEN, DOING ou CLOSED.'})
+    @IsString()
+    @MinLength(4)
+    @MaxLength(150)
+    status: string
 }

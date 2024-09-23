@@ -29,4 +29,7 @@ export class Todo extends BaseEntity {
 
     @Column({ nullable: false, type: 'varchar', length: 20, default: 'MEDIUM' })
     priority: string;
+
+    @Column({ nullable: false, type: 'varchar', length: 20, default: 'OPEN' })
+    status: string;
 }

@@ -50,6 +50,7 @@ export class TodoService {
             updatedDate: todo.updatedDate,
             deadlineDate: todo.deadlineDate,
             priority: todo.priority,
+            status: todo.status,
         }
     }
 
