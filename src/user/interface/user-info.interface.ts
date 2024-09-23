@@ -4,4 +4,5 @@ export interface userInfoData {
     photo?: string,
     modified_photo?: string,
     address: string
+    role: string
 }

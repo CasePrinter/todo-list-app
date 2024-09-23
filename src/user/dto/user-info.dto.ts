@@ -27,4 +27,9 @@ export class UserInfoDto {
         required: false
     })
     address: string
+
+    @ApiProperty(
+        {required: false}
+    )
+    role: string
 }

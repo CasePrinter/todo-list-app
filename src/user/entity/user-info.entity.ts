@@ -16,4 +16,7 @@ export class UserInfo extends BaseEntity {
 
     @Column({ type: "varchar", nullable: true })
     address: string
+
+    @Column({ nullable: false, type: 'varchar', length: 20 })
+    role: string;
 }
