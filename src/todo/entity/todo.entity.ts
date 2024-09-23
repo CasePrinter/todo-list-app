@@ -23,4 +23,10 @@ export class Todo extends BaseEntity {
 
     @Column({ type: 'int' })
     userId: number
+
+    @CreateDateColumn({ type: 'timestamp' })
+    deadlineDate: Date
+
+    @Column({ nullable: false, type: 'varchar', length: 20, default: 'MEDIUM' })
+    priority: string;
 }

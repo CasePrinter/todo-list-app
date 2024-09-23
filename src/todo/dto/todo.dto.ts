@@ -1,16 +1,28 @@
 import { ApiProperty } from "@nestjs/swagger"
-import { IsString, MaxLength, MinLength } from "class-validator"
+import { IsString, MaxLength, MinLength, IsDate } from "class-validator"
+
 
 export class TodoDto {
-    @ApiProperty()
+    @ApiProperty({ minimum: 4, maximum: 30, description: 'Título da tarefa a ser realizada' })
     @IsString()
     @MinLength(4)
     @MaxLength(30)
     title: string
 
-    @ApiProperty()
+    @ApiProperty({ minimum: 4, maximum: 150, description: 'Descrição da tarefa a ser realizada' })
     @IsString()
     @MinLength(4)
     @MaxLength(150)
     description: string
+
+    @ApiProperty({ description: 'Data de vencimento da tarefa.' })
+    @IsDate()
+    deadlineDate: Date
+
+    @ApiProperty({description: 'Prioridade pode ser definida como : HIGH, MEDIUM ou LOW.'})
+    @IsString()
+    @MinLength(4)
+    @MaxLength(150)
+    priority: string
+    
 }

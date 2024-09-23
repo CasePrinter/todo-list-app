@@ -5,4 +5,6 @@ export interface TodoPayload {
     createdDate: Date
     updatedDate: Date
     userId?: number
+    deadlineDate: Date
+    priority: string
 }

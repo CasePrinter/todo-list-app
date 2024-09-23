@@ -47,7 +47,9 @@ export class TodoService {
             title: todo.title,
             description: todo.description,
             createdDate: todo.createdDate,
-            updatedDate: todo.updatedDate
+            updatedDate: todo.updatedDate,
+            deadlineDate: todo.deadlineDate,
+            priority: todo.priority,
         }
     }
 
