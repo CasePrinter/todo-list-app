@@ -1,10 +1,11 @@
-import { User } from "../../auth/entity/user.entity";
 import { BaseEntity, Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, OneToMany } from "typeorm";
-import { Project } from "../../project/entity/project.entity";
+// import { Project } from "../../project/entity/project.entity";
+import { Todo}  from "../../todo/entity/todo.entity"
+import { User } from "../../auth/entity/user.entity"
 
 
 @Entity()
-export class Todo extends BaseEntity {
+export class Project extends BaseEntity {
     @PrimaryGeneratedColumn()
     id: number
 
@@ -20,8 +21,8 @@ export class Todo extends BaseEntity {
     @CreateDateColumn({ type: 'timestamp' })
     updatedDate: Date
 
-    @ManyToOne(type => User, user => user.todo, { eager: false })
-    user: User
+    // @ManyToOne(type => User, user => user.project, { eager: false })
+    // user: User
 
     @Column({ type: 'int' })
     userId: number
@@ -35,11 +36,9 @@ export class Todo extends BaseEntity {
     @Column({ nullable: false, type: 'varchar', length: 20, default: 'OPEN' })
     status: string;
 
-    // @OneToMany(type => Project, project => project.user, { eager: true })
+    // @OneToMany(type => Project, project => project.project, { eager: true })
     // project: Project[]
 
-    @OneToMany(type => Project, project => project.todo, { eager: true })
-    project: Project[]
-
-    
+    @ManyToOne(type => Todo, todo => todo.project, { eager: false })
+    todo: Todo
 }
