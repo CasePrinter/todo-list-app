@@ -11,7 +11,7 @@ const typeOrmConfig: TypeOrmModuleOptions = {
     password: process.env.DB_PASSWORD || dbConfig.password,
     database: process.env.POSTGRES_DB || dbConfig.database,
     entities: [__dirname + '/**/*.entity.ts', __dirname + '/**/*.entity.js'],
-    migrationsRun: true,
+    migrationsRun: false,
     logging: true,
     migrationsTableName: "migration",
     migrations: [__dirname + '/migration/**/*.ts', __dirname + '/migration/**/*.js'],
