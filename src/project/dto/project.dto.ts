@@ -25,7 +25,7 @@ export class ProjectDto {
     @MaxLength(150)
     priority: string
     
-    @ApiProperty({description: 'Status pode ser definida como : OPEN, DOING ou CLOSED.'})
+    @ApiProperty({description: 'Status pode ser definida como : WAITING, DOING ou CLOSED'})
     @IsString()
     @MinLength(4)
     @MaxLength(150)
