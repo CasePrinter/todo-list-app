@@ -7,13 +7,14 @@ import { TodoModule } from './todo/todo.module';
 import * as typeOrmConfig from './typeorm.config';
 import { UserModule } from './user/user.module';
 import { ProjectModule } from './project/project.module';
+import { ListModule } from './list/list.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot(typeOrmConfig),
     AuthModule, 
     TodoModule, 
-    UserModule, ProjectModule
+    UserModule, ProjectModule, ListModule
   ]
 })
 export class AppModule {}

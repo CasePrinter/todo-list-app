@@ -1,6 +1,7 @@
 import { User } from "../../auth/entity/user.entity";
 import { BaseEntity, Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, OneToMany } from "typeorm";
 import { Project } from "../../project/entity/project.entity";
+import { List } from "../../list/entity/list.entity";
 
 
 @Entity()
@@ -35,11 +36,10 @@ export class Todo extends BaseEntity {
     @Column({ nullable: false, type: 'varchar', length: 20, default: 'OPEN' })
     status: string;
 
-    // @OneToMany(type => Project, project => project.user, { eager: true })
-    // project: Project[]
-
     @OneToMany(type => Project, project => project.todo, { eager: true })
     project: Project[]
 
+    @OneToMany(type => List, list => list.todo, { eager: true })
+    list: List[]
     
 }
