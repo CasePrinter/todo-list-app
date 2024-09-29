@@ -10,13 +10,16 @@ export class TodoRepository extends Repository<Todo> {
         todoDto: TodoDto,
         user: User
     ): Promise<Todo> {
-        const { title, description } = todoDto
+        const { title, description, deadlineDate, priority, status } = todoDto
 
         const todo = new Todo()
 
         todo.title = title
         todo.description = description
         todo.user = user
+        todo.deadlineDate = deadlineDate
+        todo.priority = priority
+        todo.status = status
 
         await todo.save()
 

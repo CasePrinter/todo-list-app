@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger"
-import { IsString, MaxLength, MinLength, IsDate } from "class-validator"
+import { IsString, MaxLength, MinLength, IsISO8601 } from "class-validator"
 
 
 export class ProjectDto {
@@ -16,16 +16,16 @@ export class ProjectDto {
     description: string
 
     @ApiProperty({ description: 'Data de vencimento da Projeto.' })
-    @IsDate()
+    @IsISO8601()
     deadlineDate: Date
 
     @ApiProperty({description: 'Prioridade pode ser definida como : HIGH, MEDIUM ou LOW.'})
     @IsString()
-    @MinLength(4)
+    @MinLength(3)
     @MaxLength(150)
     priority: string
     
-    @ApiProperty({description: 'Status pode ser definida como : WAITING, DOING ou CLOSED'})
+    @ApiProperty({description: 'Status pode ser definida como : WAITING, DOING ou FINISHED'})
     @IsString()
     @MinLength(4)
     @MaxLength(150)

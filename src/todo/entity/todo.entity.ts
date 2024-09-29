@@ -30,10 +30,10 @@ export class Todo extends BaseEntity {
     @CreateDateColumn({ type: 'timestamp' })
     deadlineDate: Date
 
-    @Column({ nullable: false, type: 'varchar', length: 20, default: 'MEDIUM' })
+    @Column({ nullable: false, type: 'varchar', length: 20 })
     priority: string;
 
-    @Column({ nullable: false, type: 'varchar', length: 20, default: 'OPEN' })
+    @Column({ nullable: false, type: 'varchar', length: 20})
     status: string;
 
     @OneToMany(type => Project, project => project.todo, { eager: true })

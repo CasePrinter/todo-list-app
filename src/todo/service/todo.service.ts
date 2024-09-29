@@ -40,6 +40,11 @@ export class TodoService {
         const todo = await this.getTodoById(id, user)
         todo.title = todoDto.title
         todo.description = todoDto.description
+        todo.deadlineDate = todoDto.deadlineDate
+        todo.priority = todoDto.priority
+        todo.status = todoDto.status
+
+        console.log(`STATUS:${todo.status}, PRIO: ${todo.priority}`)
 
         await todo.save()
         return {

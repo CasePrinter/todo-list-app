@@ -11,12 +11,13 @@ import { JwtPayload } from "../interface/jwt-payload.interface";
 @EntityRepository(User)
 export class UserRepository extends Repository<User> {
     async signUp(signupCredentialsDto: SignupCredentialsDto): Promise<{ message: string }> {
-        const { username, password } = signupCredentialsDto
+        const { username, password, email } = signupCredentialsDto
 
         const user = new User()
         user.username = username
         user.salt = await bcrypt.genSalt()
         user.password = await this.hashPassword(password, user.salt)
+        user.email = email
         
         try {
             const userInfo = new UserInfo()
@@ -25,10 +26,10 @@ export class UserRepository extends Repository<User> {
             user.user_info = userInfo
             await user.save()
 
-            return { message: 'User successfully created !' }
+            return { message: 'Usuário criado com sucesso!' }
         } catch (error) {
             if (error.code === '23505') {
-                throw new ConflictException('Username already exists')
+                throw new ConflictException('Username já existe!')
             } else {
                 throw new InternalServerErrorException()
             }
@@ -42,7 +43,9 @@ export class UserRepository extends Repository<User> {
         if (auth && await auth.validatePassword(password)) {
             return {
                 username: auth.username,
-                user_info: auth.user_info
+                user_info: auth.user_info,
+                email: auth.email,
+
             }
         } else {
             return null

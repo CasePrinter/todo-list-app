@@ -3,6 +3,7 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 import * as bodyParser from 'body-parser'
 import { NestExpressApplication } from '@nestjs/platform-express';
+import { CorsOptions } from '@nestjs/common/interfaces/external/cors-options.interface';
 
 async function bootstrap() {
   // const app = await NestFactory.create(AppModule);
@@ -16,13 +17,19 @@ async function bootstrap() {
     .setTitle('Sistema de gerenciamento de tarefas Todo APP')
     .setDescription('Gerenciamento de Tarefas | SILVER')
     .setVersion('1.0')
-    .addTag('TODO')
+    .addTag('Sistema de gerenciamento de tarefas | SILVER')
     .build()
     
   const document = SwaggerModule.createDocument(app, options)
   SwaggerModule.setup('api', app, document)
 
-  app.enableCors()
+  
+  const corsOptions: CorsOptions = {
+    origin: 'http://localhost:3001', // Frontend URL
+    credentials: true, // Allow cookies to be sent
+  };
+
+  app.enableCors(corsOptions);
 
   app.use(bodyParser.json({limit: '1mb'}))
   app.use(bodyParser.urlencoded({ limit:'1mb', extended: true }))

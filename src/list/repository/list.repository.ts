@@ -11,13 +11,14 @@ export class ListRepository extends Repository<List> {
         listDto: ListDto,
         user: Todo
     ): Promise<List> {
-        const { title, description } = listDto
+        const { title, description, status } = listDto
 
         const list = new List()
 
         list.title = title
         list.description = description
         list.todo = user
+        list.status = status
 
         await list.save()
 

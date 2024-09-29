@@ -1,4 +1,4 @@
-import { Post, Body, ValidationPipe, Controller } from "@nestjs/common"
+import { Post, Body, ValidationPipe, Controller, Get } from "@nestjs/common"
 import { ApiTags } from "@nestjs/swagger"
 import { SignInCredentialsDto } from "./dto/signin-credentials.dto"
 import { SignupCredentialsDto } from "./dto/signup-credentials.dto"
@@ -25,4 +25,6 @@ export class AuthController {
     ): Promise<{ accessToken: string, user: JwtPayload }>{
         return this.authService.signIn(signinCredentialsDto)
     }
+
+    
 }

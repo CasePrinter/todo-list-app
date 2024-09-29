@@ -23,7 +23,7 @@ export class List extends BaseEntity {
     @Column({ type: 'int' })
     userId: number
 
-    @Column({ nullable: false, type: 'varchar', length: 20, default: 'OPEN' })
+    @Column({ nullable: false, type: 'varchar', length: 20 })
     status: string;
 
     @ManyToOne(type => Todo, todo => todo.project, { eager: false })

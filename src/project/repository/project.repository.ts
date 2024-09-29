@@ -9,15 +9,18 @@ import { Todo } from "src/todo/entity/todo.entity";
 export class ProjectRepository extends Repository<Project> {
     async createProject(
         projectDto: ProjectDto,
-        user: Todo
+        todo: Todo
     ): Promise<Project> {
-        const { title, description } = projectDto
+        const { title, description, deadlineDate, priority, status } = projectDto
 
         const project = new Project()
 
         project.title = title
         project.description = description
-        project.todo = user
+        project.todo = todo
+        project.deadlineDate = deadlineDate
+        project.priority = priority
+        project.status = status
 
         await project.save()
 
