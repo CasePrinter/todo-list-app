@@ -9,7 +9,7 @@ async function bootstrap() {
   // const app = await NestFactory.create(AppModule);
   const app = await NestFactory.create<NestExpressApplication>(AppModule)
   
-  const port = process.env.PORT || 3000
+  const port = process.env.PORT1 || 3000
 
   app.setGlobalPrefix('api')
   
