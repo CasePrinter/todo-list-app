@@ -31,6 +31,10 @@ jobs:
       - name: Configure Docker
         run: |
           gcloud auth configure-docker
+      
+      - name: IAM policy
+        run: |
+          gcloud beta run services add-iam-policy-binding --region=us-central1 --member=allUsers --role=roles/run.invoker nest-app-project
 
       - name: Build and Push Docker Image
         run: |
