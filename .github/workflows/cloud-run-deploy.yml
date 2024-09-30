@@ -34,7 +34,7 @@ jobs:
       
       - name: IAM policy
         run: |
-          gcloud beta run services add-iam-policy-binding --region=us-central1 --member=allUsers --role=roles/run.invoker nest-app-project
+          gcloud beta run services add-iam-policy-binding --region=us-central1 --member=allUsers --role=roles/run.invoker nest-app-project --quiet
 
       - name: Build and Push Docker Image
         run: |
