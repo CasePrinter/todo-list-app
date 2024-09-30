@@ -8,10 +8,11 @@ import { CorsOptions } from '@nestjs/common/interfaces/external/cors-options.int
 async function bootstrap() {
   // const app = await NestFactory.create(AppModule);
   const app = await NestFactory.create<NestExpressApplication>(AppModule)
-  const port = 8080
-  app.setGlobalPrefix('api')
-  console.log('Port running on: ', port)
+  
+  const port = process.env.PORT || 3000
 
+  app.setGlobalPrefix('api')
+  
   const options = new DocumentBuilder()
     .addBearerAuth()
     .setTitle('Sistema de gerenciamento de tarefas Todo APP')

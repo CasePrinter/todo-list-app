@@ -10,5 +10,5 @@ COPY . /app/
 
 RUN npm run build
 
-EXPOSE 8080
-CMD ["npm", "run", "typeorm:run", "&&", "npm", "run", "start"]
+EXPOSE 3000
+CMD ["npm", "run", "start"]
