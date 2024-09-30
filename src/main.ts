@@ -8,10 +8,11 @@ import { CorsOptions } from '@nestjs/common/interfaces/external/cors-options.int
 async function bootstrap() {
   // const app = await NestFactory.create(AppModule);
   const app = await NestFactory.create<NestExpressApplication>(AppModule)
-  const port = +process.env.APP_PORT || 3000
-  app.setGlobalPrefix('api')
-  console.log('Port running on: ', port)
+  
+  const port = process.env.PORT || 3000
 
+  app.setGlobalPrefix('api')
+  
   const options = new DocumentBuilder()
     .addBearerAuth()
     .setTitle('Sistema de gerenciamento de tarefas Todo APP')
@@ -25,7 +26,7 @@ async function bootstrap() {
 
   
   const corsOptions: CorsOptions = {
-    origin: 'http://localhost:3001', // Frontend URL
+    origin: 'https://react-app-1009725684335.us-central1.run.app', // Frontend URL
     credentials: true, // Allow cookies to be sent
   };
 
