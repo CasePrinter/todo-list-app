@@ -8,7 +8,7 @@ import { CorsOptions } from '@nestjs/common/interfaces/external/cors-options.int
 async function bootstrap() {
   // const app = await NestFactory.create(AppModule);
   const app = await NestFactory.create<NestExpressApplication>(AppModule)
-  const port = process.env.PORT || 3000
+  const port = process.env.PORT || 8080
   app.setGlobalPrefix('api')
   console.log('Port running on: ', port)
 
