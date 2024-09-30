@@ -25,7 +25,7 @@ async function bootstrap() {
 
   
   const corsOptions: CorsOptions = {
-    origin: 'http://localhost:3001', // Frontend URL
+    origin: 'https://react-app-1009725684335.us-central1.run.app', // Frontend URL
     credentials: true, // Allow cookies to be sent
   };
 
