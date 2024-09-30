@@ -1,23 +1,30 @@
-<p align="center">
-  <a href="https://tushar-chy.medium.com/a-simple-todo-application-with-nestjs-typeorm-postgresql-swagger-pgadmin4-jwt-and-docker-caa2742a4295" target="_blank"> <img src="https://repository-images.githubusercontent.com/180571949/1816f680-a221-11ea-8ae0-8d90df8436bb" alt="Nest Logo" /></a>
-</p>
+# Sistema de Gerenciamento de Tarefas | Silver
 
-## Description
+## Descrição
 
-A simple TODO application under Docker environment.
-* NestJS
-* TypeORM
-* PostgreSQL
-* Swagger
-* PGadmin4
-* JWT
-* Docker
+Desenvolvimento de backend para sistema gerenciamento de tarefas, para o desenvolvimento foi utilizado as seguintes tecnologias: NestJS, TypeORM, PostgreSQL, Swagger, PGadmin4, JWT e Docker.
 
-Go to [Medium](https://tushar-chy.medium.com/a-simple-todo-application-with-nestjs-typeorm-postgresql-swagger-pgadmin4-jwt-and-docker-caa2742a4295) to get the full tutorial.
-## Food App
-Another nice repo that is based on a [food-app](https://github.com/TusharRoy23/food-app-nestjs) and for the test, Jest-test has been used.
+## Desenvolvimento
 
-# Running the app on docker
+Para trabalhar no projeto o desenvolvedor deverá seguir os seguintes passos:
+
+1. Clonar o repositório: 
+  ```bash
+    git clone https://github.com/idgeo-br/SistemaMonitoramentoAgricola-plataformaWEB.git
+  ```
+2. Criar uma nova branch local a partir da branch _main_:
+  
+  ```bash
+    # As branches serão renoemadas conforme conformfe o trabalho a ser realizado: Feat, Fix, Build, HotFix.
+      git checkout feat/adicionar-funcionalidade-get-usuarios
+  ```
+3. Realiazar o trabalho criar uma _Pull Request_ para a branch _main_ marcando os revisores necessários.
+4. Após aprovada a _Pull Request_ pode realizar o _merge_ na branch _homologacao_
+5. Ao realizar o merge na branch _homologacao_ executará o workflow do GitHub actions, assim realizando o deploy e disponibilizandoo projeto em:
+ - Homologacão: [link](https://nest-app-project-1009725684335.us-central1.run.app)
+ - Documentação Swagger: [link](https://nest-app-project-1009725684335.us-central1.run.app/api)
+
+# Executando o projeto com Docker local
 ## Docker build & start
 
 ```bash
@@ -34,13 +41,13 @@ $ docker-compose down
 
 ```bash
 # generate migration
-$ docker-compose run nestjs npm run typeorm:generate AnyNameYouLike
+$ docker-compose run nestjs npm run typeorm:generate NomeDaMigrationGerada
 
 # run migration
 $ docker-compose run nestjs npm run typeorm:run
 ```
 
-# Running the app without docker
+# Executando o projeto sem Docker local
 ## Installation
 
 ```bash
@@ -50,7 +57,7 @@ $ npm install
 
 ```bash
 # generate migration
-$ npm run typeorm:generate AnyNameYouLike
+$ npm run typeorm:generate NomeDaMigrationGerada
 
 # run migration
 $ npm run typeorm:run
